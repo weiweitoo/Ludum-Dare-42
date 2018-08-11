@@ -15,7 +15,7 @@ public class CSVReaderScript : MonoBehaviour {
 	};
 
 	public struct Choices{
-		public bool isPossible;
+		public string whyFail;
 		public string message;
 		public int time;
 		public string cumulativeEffect;
@@ -89,7 +89,7 @@ public class CSVReaderScript : MonoBehaviour {
 			categories[shouldChangeIndex].choices.Add(new Choices{
 				message = grid[16, y],
 				time = grid[1,y] == "" ? 0 : Int32.Parse(grid[1, y]),
-				nextGroup = grid[7, y],
+				nextGroup = grid[7, y] == "0"? "" : grid[7,y],
 				cumulativeEffect = grid[8, y],
 				addResponsibility = grid[9, y],
 				addEffect = grid[10, y],
@@ -148,38 +148,70 @@ public class CSVReaderScript : MonoBehaviour {
 		select m.Groups[1].Value).ToArray();
 	}
 
-	// static public Category GetRandomGroup()
-	// {
-	// 	System.Random r = new System.Random(DateTime.Now.Millisecond);
-	// 	int rInt = r.Next(0, categories.Count);
-	// 	item = categories[rInt];
-	// 	while(!(item.requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.requirements.responsibility))
-	// 		 || !(item.requirements.effect == "0" || ScoreManager.effect.Contains(item.requirements.effect))
-	// 		){
-	// 		rInt = r.Next(0, categories.Count);
-	// 		item = categories[rInt];
-	// 	}
+	static public Category GetRandomGroup()
+	{	
+		Category item = new Category();
+		// Cond 1: Specific category
+		if (ScoreManager.nextGroup != ""){
+			foreach(var category in categories){
+				if (category.grouping == ScoreManager.nextGroup){
+					item = category;
+					break;
+				}
+			}	 
+		} else {
+			// Cond 2: Random category
+			System.Random r = new System.Random(DateTime.Now.Millisecond);
+			int rInt = r.Next(0, categories.Count);
+			item = categories[rInt];
+			// temp fix, assuming that each choice grouping has the same responsibility and effect requirements.
+			while(!(item.choices[0].requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.choices[0].requirements.responsibility))
+				 || !(item.choices[0].requirements.effect == "0" || ScoreManager.effect.Contains(item.choices[0].requirements.effect))
+				){
+				rInt = r.Next(0, categories.Count);
+				item = categories[rInt];
+			}
+		}
+		
+		if (item.choices.Count != 3){ // got more than 3 choices
+			System.Random r = new System.Random(DateTime.Now.Millisecond);
+			while (item.choices.Count > 3){
+				item.choices.RemoveAt(r.Next(0, item.choices.Count - 1));
+			}
+		}
+		for (int i = 0; i < item.choices.Count; i++){
+			int gold = item.choices[i].requirements.gold;
+		    int skill = item.choices[i].requirements.skill;
+			int socialize = item.choices[i].requirements.socialize;
+			var choice = item.choices[i];
+			choice.whyFail = "";
+			if (ScoreManager.gold < gold){
+				choice.whyFail = "Insufficient money"; 
+			}
+			if (ScoreManager.skill < skill){
+				choice.whyFail = "Insufficient skills";
+			}
+			if (ScoreManager.socialize < socialize){
+				choice.whyFail = "Insufficient social skills";
+			}
+			item.choices[i] = choice;
+
+		}	
+
+		return item;	
 		
 
-	// 	if (categories[rInt].choices.Count == 3){
-	// 		return categories[rInt];
-	// 	} else { // got more than 3 choices
-	// 		List<Category> tempCategories = new List <Category>(categories) ;
-	// 		while (tempCategories[rInt].choices.Count > 3){
-	// 			tempCategories[rInt].choices.RemoveAt(r.Next(0, tempCategories[rInt].choices.Count - 1));
-	// 		}
-	// 		return tempCategories[rInt];
-	// 	}
-	// 	// return new Category();
-	// }
+		
+		// return new Category();
+	}
 
-	// static public Category GetSpecificGroup(string grouping)
-	// {
-	// 	foreach( var category in categories){
-	// 		if (category.grouping == grouping ){
-	// 			return category;
-	// 		}
-	// 	}
-	// 	return new Category();
-	// }
+	static public Category GetSpecificGroup(string grouping)
+	{
+		foreach( var category in categories){
+			if (category.grouping == grouping ){
+				return category;
+			}
+		}
+		return new Category();
+	}
 }

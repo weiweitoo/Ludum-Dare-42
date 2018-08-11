@@ -1,0 +1,42 @@
+No,TimeSpent,Happy,Gold,Skill,Socialize,Group,NextGroup,Category,Add Responsibility,Add Effect,Required Gold,Required Responsibility,Required Effect,Required Socialize,Required Skill,Message
+1,0,-9,0,0,0,401_SCHOOL_CHOICE,402_SCHOOL_ACTIVITIES_1,0,R401_PRIMARY_SCHOOL,0,0,0,0,0,0,Go to school
+2,0,9,0,-2,0,401_SCHOOL_CHOICE,0,LAZY,0,0,0,0,0,0,0,Pretend to be sick
+3,0,-9,0,-2,0,401_SCHOOL_CHOICE,0,LAZY,0,0,0,0,0,4,0,Quarrel with parents to avoid going to school
+4,20,-9,0,2,0,402_SCHOOL_ACTIVITIES_1,403_SCHOOL_ACTIVITIES_2,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Study in the boring classroom
+5,20,9,0,-2,2,402_SCHOOL_ACTIVITIES_1,403_SCHOOL_ACTIVITIES_2,0,0,0,0,R401_PRIMARY_SCHOOL,0,4,0,Have fun with friends in class
+6,20,19,0,-2,0,402_SCHOOL_ACTIVITIES_1,404_SCHOOL_ACTIVITIES_3,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Play truant
+7,20,19,0,2,1,403_SCHOOL_ACTIVITIES_2,404_SCHOOL_ACTIVITIES_3,0,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Attend PJ class
+8,20,0,5,-2,-2,403_SCHOOL_ACTIVITIES_2,0,EVIL,0,0,0,R401_PRIMARY_SCHOOL,0,0,8,Stay in class and steal classmate’s money
+9,20,0,0,-2,-1,403_SCHOOL_ACTIVITIES_2,404_SCHOOL_ACTIVITIES_3,0,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Stand aside without playing
+10,14,9,0,4,0,404_SCHOOL_ACTIVITIES_3,0,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Visit the library
+11,14,19,0,0,-1,404_SCHOOL_ACTIVITIES_3,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Sleep in class
+12,14,31,0,2,2,404_SCHOOL_ACTIVITIES_3,0,OUTGOING,0,0,0,R401_PRIMARY_SCHOOL,0,4,0,Play with friends in the field
+,0,9,0,0,0,0,407_SHOPPING_CHOICES,0,0,0,0,0,0,0,0,Going out to shopping mall with parents
+,20,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Stay at home 
+,20,9,0,2,0,0,0,0,0,0,0,0,0,0,0,Go to the zoo with parents
+,27,19,0,2,0,0,0,0,0,0,0,0,0,0,0,Go to the beach with parents
+,27,9,0,2,0,0,0,0,0,0,0,0,0,0,0,Go to the park with parents
+,27,19,0,2,2,405_HOBBY_ACTIVITIES,0,OUTGOING,0,0,0,0,0,8,0,Play outside with friends
+,20,31,-5,0,2,405_HOBBY_ACTIVITIES,0,OUTGOING,0,0,5,0,0,8,0,Watch movies with friends
+,0,0,0,0,0,405_HOBBY_ACTIVITIES,406_READ_CHOICES,0,0,0,0,0,0,0,0,Read at home
+,20,9,0,4,0,406_READ_CHOICES,0,0,0,0,0,0,0,0,8,Read storybooks
+,20,-19,0,4,0,406_READ_CHOICES,0,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Study school material
+,20,0,0,6,0,406_READ_CHOICES,0,DILIGENT,0,0,0,0,0,0,12,Read the biography of Steve Jobs
+,0,31,0,0,0,407_SHOPPING_CHOICES,0,0,0,0,0,0,0,0,0,Ask parents to buy my favorite toy gun!
+,0,19,-5,0,0,407_SHOPPING_CHOICES,0,0,0,0,5,0,0,0,0,Buy with my own money
+,0,-19,0,0,0,407_SHOPPING_CHOICES,0,0,0,0,0,0,0,0,0,Window shopping
+,20,-19,0,4,0,408_TUITION_CHOICES,0,0,0,0,0,0,0,0,0,Attend tuition class
+,20,9,0,-2,0,408_TUITION_CHOICES,0,LAZY,0,0,0,0,0,0,0,Pretend to be ill
+,0,0,0,-4,0,408_TUITION_CHOICES,0,LAZY,0,0,0,0,0,0,0,Screw the tuition class and don’t go anymore
+,14,9,0,4,0,0,0,0,0,0,0,0,0,0,8,Draw
+,14,9,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with toys
+,14,9,0,-2,0,0,0,0,0,0,0,0,0,0,0,Sleep 
+,14,9,0,2,0,0,0,0,0,0,0,0,0,0,8,Fold paper plane
+,20,19,0,0,0,0,0,0,0,0,0,0,0,0,0,Watch TV
+,27,0,0,6,0,409_HOMEWORK_CHOICES,0,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,12,Do homework with the best effort
+,14,9,0,2,0,409_HOMEWORK_CHOICES,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Cincai do homework
+,0,0,0,-2,0,409_HOMEWORK_CHOICES,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,12,0,"Screw the homework, I’ll copy my friends’ tomorrow"
+,0,9,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,"Seeing neighbor has a new toy, ask parents to buy"
+,0,19,-5,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,5,0,0,0,0,"Seeing neighbor has a new toy, buy with my own money"
+,0,-28,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,"Seeing neighbor has a new toy, I can only dream about it"
+,14,9,5,0,0,0,0,0,0,0,0,0,0,8,0,Ask parents for pocket money
