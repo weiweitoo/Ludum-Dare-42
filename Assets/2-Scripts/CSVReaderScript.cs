@@ -50,7 +50,7 @@ public class CSVReaderScript : MonoBehaviour {
 		// Debug.Log(haha.grouping);
 		// Category hihi = GetSpecificGroup("haha");
 		// Debug.Log(hihi.grouping);
-		Category cat = GetRandomGroup();
+		// Category cat = GetRandomGroup();
 	}
 	
 	// Update is called once per frame
