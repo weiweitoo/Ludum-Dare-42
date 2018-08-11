@@ -6,7 +6,7 @@ No,TimeSpent,Happy,Gold,Skill,Socialize,Group,NextGroup,Category,Add Responsibil
 5,20,9,0,-2,2,402_SCHOOL_ACTIVITIES_1,403_SCHOOL_ACTIVITIES_2,0,0,0,0,R401_PRIMARY_SCHOOL,0,4,0,Have fun with friends in class
 6,20,19,0,-2,0,402_SCHOOL_ACTIVITIES_1,404_SCHOOL_ACTIVITIES_3,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Play truant
 7,20,19,0,2,1,403_SCHOOL_ACTIVITIES_2,404_SCHOOL_ACTIVITIES_3,0,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Attend PJ class
-8,20,0,5,-2,-2,403_SCHOOL_ACTIVITIES_2,0,EVIL,0,0,0,R401_PRIMARY_SCHOOL,0,0,8,Stay in class and steal classmate’s money
+8,20,0,5,-2,-2,403_SCHOOL_ACTIVITIES_2,0,EVIL,0,0,0,R401_PRIMARY_SCHOOL,0,0,8,Stay in class and steal classmate money
 9,20,0,0,-2,-1,403_SCHOOL_ACTIVITIES_2,404_SCHOOL_ACTIVITIES_3,0,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Stand aside without playing
 10,14,9,0,4,0,404_SCHOOL_ACTIVITIES_3,0,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Visit the library
 11,14,19,0,0,-1,404_SCHOOL_ACTIVITIES_3,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Sleep in class
@@ -27,7 +27,7 @@ No,TimeSpent,Happy,Gold,Skill,Socialize,Group,NextGroup,Category,Add Responsibil
 26,0,-19,0,0,0,407_SHOPPING_CHOICES,0,0,0,0,0,0,0,0,0,Window shopping
 27,20,-19,0,4,0,408_TUITION_CHOICES,0,0,0,0,0,0,0,0,0,Attend tuition class
 28,20,9,0,-2,0,408_TUITION_CHOICES,0,LAZY,0,0,0,0,0,0,0,Pretend to be ill
-29,0,0,0,-4,0,408_TUITION_CHOICES,0,LAZY,0,0,0,0,0,0,0,Screw the tuition class and don’t go anymore
+29,0,0,0,-4,0,408_TUITION_CHOICES,0,LAZY,0,0,0,0,0,0,0,Screw the tuition class and dont go anymore
 30,14,9,0,4,0,0,0,0,0,0,0,0,0,0,8,Draw
 31,14,9,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with toys
 32,14,9,0,-2,0,0,0,0,0,0,0,0,0,0,0,Sleep 
@@ -35,8 +35,8 @@ No,TimeSpent,Happy,Gold,Skill,Socialize,Group,NextGroup,Category,Add Responsibil
 34,20,19,0,0,0,0,0,0,0,0,0,0,0,0,0,Watch TV
 35,27,0,0,6,0,409_HOMEWORK_CHOICES,0,DILIGENT,0,0,0,R401_PRIMARY_SCHOOL,0,0,12,Do homework with the best effort
 36,14,9,0,2,0,409_HOMEWORK_CHOICES,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,0,0,Cincai do homework
-37,0,0,0,-2,0,409_HOMEWORK_CHOICES,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,12,0,"Screw the homework, I’ll copy my friends’ tomorrow"
-38,0,9,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,"Seeing neighbor has a new toy, ask parents to buy"
-39,0,19,-5,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,5,0,0,0,0,"Seeing neighbor has a new toy, buy with my own money"
-40,0,-28,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,"Seeing neighbor has a new toy, I can only dream about it"
+37,0,0,0,-2,0,409_HOMEWORK_CHOICES,0,LAZY,0,0,0,R401_PRIMARY_SCHOOL,0,12,0,Screw the homework I will copy my friend tomorrow
+38,0,9,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,Seeing neighbor has a new toy so ask parents to buy
+39,0,19,-5,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,5,0,0,0,0,Seeing neighbor has a new toy so buy with my own money
+40,0,-28,0,0,0,410_NEIGHBOR_HAS_TOYS,0,0,0,0,0,0,0,0,0,Seeing neighbor has a new toy so I can only dream about it
 41,14,9,5,0,0,0,0,0,0,0,0,0,0,8,0,Ask parents for pocket money
