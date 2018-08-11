@@ -37,23 +37,38 @@ public class PlayerScript : MonoBehaviour {
 
 	public void TurnRight(){
 		//fuck it
-		if(x == 0 && z == m_movingSpeed){
-			x = m_movingSpeed;
+		if(x == 0 && z == 1){
+			x = 1;
 			z = 0;
 		}
-		else if (x == m_movingSpeed && z == 0){
+		else if (x == 1 && z == 0){
 			x = 0;
-			z = -m_movingSpeed;
+			z = -1;
 		}
-		else if(x == -m_movingSpeed && z == 0){
+		else if(x == -1 && z == 0){
 			x = 0;
-			z = m_movingSpeed;
+			z = 1;
 		}
-		else if(x == 0 && z == -m_movingSpeed){
-			x = -m_movingSpeed;
+		else if(x == 0 && z == -1){
+			x = -1;
 			z = 0;
 		}
 		right = 0;
+
+		// spawn road	
+		// TODO mencorrectkan the pivot point
+		// make it transition effect
+		GameObject currentPath = GlobalManager.GetCurrentPath();
+		float height = currentPath.transform.position.y;
+		Quaternion newRotation = currentPath.transform.rotation * Quaternion.Euler(0, 90, 0);
+		Vector3 newPosition = new Vector3(transform.position.x,height,transform.position.z);
+
+		GameObject newPath = Instantiate(path,newPosition,newRotation) as GameObject;
+		if(GameObject.Find("PrevPath")){
+			Destroy(GameObject.Find("PrevPath"));
+		}
+		currentPath.name = "PrevPath";
+		newPath.name = "CurrentPath";
 	}
 
 	public void TurnLeft(){

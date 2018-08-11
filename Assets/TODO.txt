@@ -5,4 +5,5 @@
 - start menu
 - make startpoint door a bit
 - add some small element across the road
-- make background 
+- make background
+- change spawn path pivot point
