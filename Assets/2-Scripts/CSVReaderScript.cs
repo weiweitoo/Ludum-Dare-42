@@ -15,6 +15,7 @@ public class CSVReaderScript : MonoBehaviour {
 	};
 
 	public struct Choices{
+		public bool isPossible;
 		public string message;
 		public int time;
 		public string cumulativeEffect;
@@ -151,6 +152,15 @@ public class CSVReaderScript : MonoBehaviour {
 	{
 		System.Random r = new System.Random(DateTime.Now.Millisecond);
 		int rInt = r.Next(0, categories.Count);
+		item = categories[rInt];
+		while(!(item.requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.requirements.responsibility))
+			 || !(item.requirements.effect == "0" || ScoreManager.effect.Contains(item.requirements.effect))
+			){
+			rInt = r.Next(0, categories.Count);
+			item = categories[rInt];
+		}
+		
+
 		if (categories[rInt].choices.Count == 3){
 			return categories[rInt];
 		} else { // got more than 3 choices
