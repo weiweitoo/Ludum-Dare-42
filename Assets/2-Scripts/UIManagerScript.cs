@@ -4,6 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManagerScript : MonoBehaviour {
+
+	public GameObject sideBarUI;
+	public GameObject choiceUI;
+	public GameObject endingUI;
+	public GameObject analysisUI;
+	public GameObject commentUI;
+	public GameObject gameOverUI;
+
 	public GameObject panel;
 	public List<float> block = new List<float>();
 	public float absorbSpeed = 0.3f;
