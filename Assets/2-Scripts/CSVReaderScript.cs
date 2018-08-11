@@ -43,12 +43,14 @@ public class CSVReaderScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		string[,] grid = SplitCsvGrid(csvFile.text);
-		// Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
+		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		ProcessOutputGrid(grid);
+
 		// Category haha = GetRandomGroup();
 		// Debug.Log(haha.grouping);
 		// Category hihi = GetSpecificGroup("haha");
 		// Debug.Log(hihi.grouping);
+		Category cat = GetRandomGroup();
 	}
 	
 	// Update is called once per frame
@@ -64,7 +66,6 @@ public class CSVReaderScript : MonoBehaviour {
 		for (int y = 1; y < grid.GetUpperBound(1) - 1; y++) {
 		 	bool shouldCreateNew = true;
 		 	int shouldChangeIndex = 0;
-
 		 	for (int i = 0; i < categories.Count; i++){
 		 		if (categories[i].grouping == grid[6,y] || (grid[6,y] == "" && categories[i].grouping == "random")){
 		 			shouldCreateNew = false;
@@ -114,7 +115,6 @@ public class CSVReaderScript : MonoBehaviour {
 	static public string[,] SplitCsvGrid(string csvText)
 	{
 		string[] lines = csvText.Split("\n"[0]); 
- 
 		// finds the max width of row
 		int width = 0; 
 		for (int i = 0; i < lines.Length; i++)
@@ -140,6 +140,8 @@ public class CSVReaderScript : MonoBehaviour {
  
 		return outputGrid; 
 	}
+ 
+	// splits a CSV row 
 	static public string[] SplitCsvLine(string line)
 	{
 		return (from System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(line,
@@ -203,15 +205,5 @@ public class CSVReaderScript : MonoBehaviour {
 
 		
 		// return new Category();
-	}
-
-	static public Category GetSpecificGroup(string grouping)
-	{
-		foreach( var category in categories){
-			if (category.grouping == grouping ){
-				return category;
-			}
-		}
-		return new Category();
 	}
 }
