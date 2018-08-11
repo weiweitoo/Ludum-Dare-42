@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour {
 
 	void Start () {
 		m_CharacterController = GetComponent<CharacterController>();
+		SetChild();
 	}
 	
 	void FixedUpdate () {
@@ -72,6 +73,11 @@ public class PlayerScript : MonoBehaviour {
 			z = 0;
 		}
 		left = 0;
+	}
+
+	public void SetChild(){
+		m_movingSpeed = 1;
+		transform.position = new Vector3(0.0f, 2f, 0.0f);
 	}
 
 	//TODO shake camera
