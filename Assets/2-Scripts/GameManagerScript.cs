@@ -13,30 +13,31 @@ public class GameManagerScript : MonoBehaviour {
 	private bool choice02Valid = true;
 	private bool choice03Valid = true;
 
+	private Category currentCategory;
+
 	void Start () {
-		// enable = true;
-		UIManagerScript.SetChoice01("i am vallid man.",true);
-		UIManagerScript.SetChoice02("this is invalid",false);
+		enable = true;
+		UpdateChoice();
 	}
 	
 	void Update () {
 		if(enable == true){
-			StartCoroutine(ShowGameOver());
 			// Update input
 			
 			if (Input.GetKeyDown(KeyCode.UpArrow)){
-	            print("forward key was pressed");
+	            UpdateStatus(currentCategory.choices[0].statusUpdates);
+	            UpdateChoice();
 	        }
 	        else if (Input.GetKeyDown(KeyCode.LeftArrow)){
-	            print("left key was pressed");
+	            UpdateStatus(currentCategory.choices[1].statusUpdates);
+	            player.GetComponent<PlayerScript>().TurnLeft();
+	            UpdateChoice();
 	        }
 	        else if (Input.GetKeyDown(KeyCode.RightArrow)){
-	            print("right key was pressed");
+	            UpdateStatus(currentCategory.choices[2].statusUpdates);
+	            player.GetComponent<PlayerScript>().TurnRight();
+	            UpdateChoice();
 	        }
-			//Detect input
-				// Player Turn
-				// Save state into playerdata
-				// some animation
 		}
 	}
 
@@ -57,7 +58,17 @@ public class GameManagerScript : MonoBehaviour {
 
 	public void UpdateChoice(){
 		// Fetch 3 choice by status
-		// Set choice using UIManagerScript.SetChoice01(newtext);
+		currentCategory = GameObject.Find("BabyData").GetComponent<CSVReaderScript>().GetRandomGroup();
+		UIManagerScript.SetChoice01(currentCategory.choices[0].message,currentCategory.choices[0].whyFail == "");
+		UIManagerScript.SetChoice02(currentCategory.choices[1].message,currentCategory.choices[1].whyFail == "");
+		UIManagerScript.SetChoice03(currentCategory.choices[2].message,currentCategory.choices[2].whyFail == "");
+	}
+
+	public void UpdateStatus(StatusUpdates x){
+		ScoreManager.happiness += x.happy;
+		ScoreManager.gold += x.gold;
+		ScoreManager.skill += x.skill;
+		ScoreManager.socialize += x.socialize;
 	}
 
 	public IEnumerator ShowGameOver(){
