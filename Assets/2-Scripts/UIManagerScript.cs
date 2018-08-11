@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class UIManagerScript : MonoBehaviour {
 	public GameObject panel;
 	public List<float> block = new List<float>();
-
-	// Debug variable
-	public int absorbCounter = 0;
+	public float absorbSpeed = 0.3f;
 
 	// Use this for initialization
 	void Start () {
 		AddBlock(10);
 		AddBlock(30);
+		AddBlock(22);
+		AddBlock(55);
 		StartCoroutine(Absorb());
 	}
 	
@@ -30,24 +30,30 @@ public class UIManagerScript : MonoBehaviour {
 	}
 
 	public void AddBlock(float pixel){
-		block.Add(pixel);
+		block.Insert(0,pixel);
 		GameObject timeBlock = Instantiate(panel) as GameObject;
 		RectTransform rectTransform = timeBlock.GetComponent<RectTransform>();
 		rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,pixel);
+		//TODO change the color of the block to ligher and beautiful color
 		timeBlock.GetComponent<Image>().color = Random.ColorHSV(0f,0.3f);
 		timeBlock.transform.parent = GlobalManager.GetBlockSpace().transform;
+		timeBlock.transform.SetSiblingIndex(0);
 	}
 
 	IEnumerator Absorb(){
 		var blockSpace = GlobalManager.GetBlockSpace().transform;
-		int count = blockSpace.childCount;
-		while(true)
-	    {
-	        absorbCounter += 1;
-	        for(int i = 0;i < count;i++){
-	        	// blockSpace.GetChild(i).GetComponent<RectTransform>().localPosition = new Vector2();;
+		while(true){
+	        var lastIndex = blockSpace.childCount - 1;
+	        var rectTransform = blockSpace.GetChild(lastIndex).GetComponent<RectTransform>();
+	        rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,--block[lastIndex]);
+
+	        if(rectTransform.sizeDelta.y == 0){
+	        	block.Remove(lastIndex);
+	        	Destroy (blockSpace.GetChild(lastIndex).gameObject);
+	        	Debug.Log("Absorbed");
 	        }
-	        yield return new WaitForSeconds(1);
+
+	        yield return new WaitForSeconds(absorbSpeed);
 	    }
 	}
 }

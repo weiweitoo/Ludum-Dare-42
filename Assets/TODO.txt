@@ -1,0 +1,7 @@
+- Add walk motion feeling
+- change ui color
+- sidebar color
+- change font
+- start menu
+- make startpoint door a bit
+- add some small element across the road
