@@ -35,7 +35,7 @@ public class UIManagerScript : MonoBehaviour {
 		RectTransform rectTransform = timeBlock.GetComponent<RectTransform>();
 		rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,pixel);
 		//TODO change the color of the block to ligher and beautiful color
-		timeBlock.GetComponent<Image>().color = Random.ColorHSV(0f,0.3f);
+		timeBlock.GetComponent<Image>().color = new Color(Random.Range(0.5f, 1.0f),Random.Range(0.5f, 1.0f),Random.Range(0.5f, 1.0f));
 		timeBlock.transform.parent = GlobalManager.GetBlockSpace().transform;
 		timeBlock.transform.SetSiblingIndex(0);
 	}
@@ -55,5 +55,63 @@ public class UIManagerScript : MonoBehaviour {
 
 	        yield return new WaitForSeconds(absorbSpeed);
 	    }
+	}
+
+	//////////////////////////////////////////////////////////////////////////
+	//// Status Bar
+	//////////////////////////////////////////////////////////////////////////
+
+	//TODO update status bar
+	public static void UpdateStatusBar(){
+		// do something here lol
+	}
+
+
+	//////////////////////////////////////////////////////////////////////////
+	//// Choice
+	//////////////////////////////////////////////////////////////////////////
+	public static void SetChoice01(string newText,bool valid){
+		Text textComponent = GameObject.Find("Choice01Text").GetComponent<Text>();
+		textComponent.text = newText;
+		if(valid == false){
+			textComponent.color = new Color(0.3f,0.3f,0.3f);
+		}
+		else{
+			textComponent.color = new Color(0,0,0);
+		}
+	}
+
+	public static void SetChoice02(string newText,bool valid){
+		Text textComponent = GameObject.Find("Choice02Text").GetComponent<Text>();
+		textComponent.text = newText;
+		if(valid == false){
+			textComponent.color = new Color(0.3f,0.3f,0.3f);
+		}
+		else{
+			textComponent.color = new Color(0,0,0);
+		}
+	}
+
+	public static void SetChoice03(string newText,bool valid){
+		Text textComponent = GameObject.Find("Choice03Text").GetComponent<Text>();
+		textComponent.text = newText;
+		if(valid == false){
+			textComponent.color = new Color(0.3f,0.3f,0.3f);
+		}
+		else{
+			textComponent.color = new Color(0,0,0);
+		}
+	}
+
+	public static string GetChoice01(){
+		return GameObject.Find("Choice01Text").GetComponent<Text>().text;
+	}
+
+	public static string SetChoice02(){
+		return GameObject.Find("Choice02Text").GetComponent<Text>().text;
+	}
+
+	public static string SetChoice03(){
+		return GameObject.Find("Choice03Text").GetComponent<Text>().text;
 	}
 }

@@ -16,14 +16,26 @@ public class PlayerScript : MonoBehaviour {
 
 	public GameObject path;
 
+	public bool enable = false;
+
 	void Start () {
 		m_CharacterController = GetComponent<CharacterController>();
 		SetChild();
 	}
 	
 	void FixedUpdate () {
-		m_MoveDir = new Vector3(x,0,z) * m_movingSpeed;
-		m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+		if(enable == true){
+			m_MoveDir = new Vector3(x,0,z) * m_movingSpeed;
+			m_CharacterController.Move(m_MoveDir*Time.fixedDeltaTime);
+		}
+	}
+
+	public void Enable(){
+		enable = true;
+	}
+
+	public void Disable(){
+		enable = false;
 	}
 
 	void Update(){
