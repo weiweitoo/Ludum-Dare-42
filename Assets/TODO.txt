@@ -5,3 +5,4 @@
 - start menu
 - make startpoint door a bit
 - add some small element across the road
+- make background 

@@ -14,6 +14,8 @@ public class PlayerScript : MonoBehaviour {
 	public int right = 0;
 	public int left = 0;
 
+	public GameObject path;
+
 	void Start () {
 		m_CharacterController = GetComponent<CharacterController>();
 		SetChild();
