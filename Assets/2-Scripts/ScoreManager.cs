@@ -15,21 +15,39 @@ public class ScoreManager : MonoBehaviour{
 	public GameObject socializeUI;
 	public GameObject skillUI;
 	public GameObject happinessUI;
+	public GameObject respUI1, respUI2, respUI3;
 
 	public static List<string> responsibility = new List<string>();
 	public static List<string> effect = new List<string>();
 	public static List<string> category = new List<string>();
 	public static string nextGroup = "";
 
-	public static void clearGroup(){
+	public void clearGroup(){
 		nextGroup = "";
 	}
 
-	void update(){
+    void Start(){
+		Debug.Log("Started");
+	}
+	void Update(){
+		gold++;
 		coinUI.GetComponent<Text>().text = gold.ToString();
 		happinessUI.GetComponent<Text>().text = happiness.ToString();
 		skillUI.GetComponent<Text>().text = skill.ToString();
 		socializeUI.GetComponent<Text>().text = socialize.ToString();
 		ageUI.GetComponent<Text>().text = age.ToString();
+		for (int i = 0; i < responsibility.Count; i++){
+			switch (i){
+				case 0:
+					respUI1.GetComponent<Text>().text = responsibility[i];
+					break;
+				case 1:
+					respUI2.GetComponent<Text>().text = responsibility[i];
+					break;
+				case 2:
+					respUI3.GetComponent<Text>().text = responsibility[i];
+					break;
+			}
+		}
 	}
 }
