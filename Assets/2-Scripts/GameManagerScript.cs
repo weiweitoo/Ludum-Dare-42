@@ -55,7 +55,6 @@ public class GameManagerScript : MonoBehaviour {
 
 	public void UpdateChoice(){
 		// Fetch 3 choice by status
-		// Check if the condition fulfill
 		// Set choice using UIManagerScript.SetChoice01(newtext);
 	}
 

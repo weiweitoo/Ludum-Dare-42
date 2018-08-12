@@ -10,10 +10,6 @@ public class UIManagerScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		AddBlock(10);
-		AddBlock(30);
-		AddBlock(22);
-		AddBlock(55);
 		StartCoroutine(Absorb());
 	}
 	
@@ -41,7 +37,7 @@ public class UIManagerScript : MonoBehaviour {
 
 	IEnumerator Absorb(){
 		var blockSpace = GlobalManager.GetBlockSpace().transform;
-		while(true){
+		while(true && blockSpace.childCount != 0){
 	        var lastIndex = blockSpace.childCount - 1;
 	        var rectTransform = blockSpace.GetChild(lastIndex).GetComponent<RectTransform>();
 	        rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,--block[lastIndex]);
