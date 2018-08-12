@@ -34,8 +34,7 @@ public class UIManagerScript : MonoBehaviour {
 		GameObject timeBlock = Instantiate(panel) as GameObject;
 		RectTransform rectTransform = timeBlock.GetComponent<RectTransform>();
 		rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,pixel);
-		//TODO change the color of the block to ligher and beautiful color
-		timeBlock.GetComponent<Image>().color = new Color(Random.Range(0.5f, 1.0f),Random.Range(0.5f, 1.0f),Random.Range(0.5f, 1.0f));
+		timeBlock.GetComponent<Image>().color = new Color(Random.Range(0.4f, 1.0f),Random.Range(0.4f, 1.0f),Random.Range(0.4f, 1.0f));
 		timeBlock.transform.parent = GlobalManager.GetBlockSpace().transform;
 		timeBlock.transform.SetSiblingIndex(0);
 	}

@@ -23,6 +23,15 @@ public class GameManagerScript : MonoBehaviour {
 		if(enable == true){
 			// Update input
 			
+			if (Input.GetKeyDown(KeyCode.UpArrow)){
+	            print("forward key was pressed");
+	        }
+	        else if (Input.GetKeyDown(KeyCode.LeftArrow)){
+	            print("left key was pressed");
+	        }
+	        else if (Input.GetKeyDown(KeyCode.RightArrow)){
+	            print("right key was pressed");
+	        }
 			//Detect input
 				// Player Turn
 				// Save state into playerdata
