@@ -8,7 +8,7 @@ public class GameManagerScript : MonoBehaviour {
 	public string status = "Sperm";
 	public GameObject player;
 
-	public bool enable = false;
+	public bool enable = true;
 	private bool choice01Valid = true;
 	private bool choice02Valid = true;
 	private bool choice03Valid = true;
@@ -18,6 +18,7 @@ public class GameManagerScript : MonoBehaviour {
 	void Start () {
 		enable = true;
 		UpdateChoice();
+		StartCoroutine(RefreshTime());
 	}
 	
 	void Update () {
@@ -26,15 +27,18 @@ public class GameManagerScript : MonoBehaviour {
 			
 			if (Input.GetKeyDown(KeyCode.UpArrow)){
 	            UpdateStatus(currentCategory.choices[0].statusUpdates);
+	            GlobalManager.GetUIManager().GetComponent<UIManagerScript>().AddBlock(currentCategory.choices[0].time);
 	            UpdateChoice();
 	        }
 	        else if (Input.GetKeyDown(KeyCode.LeftArrow)){
 	            UpdateStatus(currentCategory.choices[1].statusUpdates);
+	            GlobalManager.GetUIManager().GetComponent<UIManagerScript>().AddBlock(currentCategory.choices[1].time);
 	            player.GetComponent<PlayerScript>().TurnLeft();
 	            UpdateChoice();
 	        }
 	        else if (Input.GetKeyDown(KeyCode.RightArrow)){
 	            UpdateStatus(currentCategory.choices[2].statusUpdates);
+	            GlobalManager.GetUIManager().GetComponent<UIManagerScript>().AddBlock(currentCategory.choices[2].time);
 	            player.GetComponent<PlayerScript>().TurnRight();
 	            UpdateChoice();
 	        }
@@ -54,6 +58,21 @@ public class GameManagerScript : MonoBehaviour {
 	public void EndGame(){
 		enable = false;
 		player.GetComponent<PlayerScript>().Disable();
+	}
+
+	IEnumerator RefreshTime(){
+		while(true){
+			ScoreManager.age++;
+			if(ScoreManager.age >= 10){
+				StartCoroutine(ShowGameOver());
+			}
+			yield return new WaitForSeconds(5);
+		}
+	}
+
+	private bool CheckChoice(int x){
+		return GlobalManager.GetUIManager().GetComponent<UIManagerScript>().GetRemainingSpace() + x <= 350;
+
 	}
 
 	public void UpdateChoice(){

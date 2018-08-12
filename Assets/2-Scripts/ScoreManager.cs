@@ -30,7 +30,6 @@ public class ScoreManager : MonoBehaviour{
 		Debug.Log("Started");
 	}
 	void Update(){
-		gold++;
 		coinUI.GetComponent<Text>().text = gold.ToString();
 		happinessUI.GetComponent<Text>().text = happiness.ToString();
 		skillUI.GetComponent<Text>().text = skill.ToString();

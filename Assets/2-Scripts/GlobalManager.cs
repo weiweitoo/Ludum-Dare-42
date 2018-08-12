@@ -12,6 +12,10 @@ public class GlobalManager{
 		return GameObject.Find("CurrentPath");	
 	}
 
+	public static GameObject GetScoreManager(){
+		return GameObject.Find("@ScoreManager");	
+	}
+
 	public static GameObject GetUIManager(){
 		return GameObject.Find("@UIManager");	
 	}

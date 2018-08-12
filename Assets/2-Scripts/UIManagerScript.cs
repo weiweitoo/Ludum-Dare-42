@@ -14,15 +14,11 @@ public class UIManagerScript : MonoBehaviour {
 
 	public GameObject panel;
 	public List<float> block = new List<float>();
-	public float absorbSpeed = 0.3f;
+	public float absorbSpeed = 0.1f;
 
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(Absorb());
-	}
-	
-	// Update is called once per frame
-	void Update () {
 	}
 
 	public float GetRemainingSpace(){
@@ -45,16 +41,19 @@ public class UIManagerScript : MonoBehaviour {
 
 	IEnumerator Absorb(){
 		var blockSpace = GlobalManager.GetBlockSpace().transform;
-		while(true && blockSpace.childCount != 0){
-	        var lastIndex = blockSpace.childCount - 1;
-	        var rectTransform = blockSpace.GetChild(lastIndex).GetComponent<RectTransform>();
-	        rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,--block[lastIndex]);
+		while(true){
+			if(blockSpace.childCount != 0){
+				var lastIndex = blockSpace.childCount - 1;
+				var rectTransform = blockSpace.GetChild(lastIndex).GetComponent<RectTransform>();
+				rectTransform.sizeDelta = new Vector2 (rectTransform.rect.width,--block[lastIndex]);
+				Debug.Log(block[lastIndex]);
 
-	        if(rectTransform.sizeDelta.y == 0){
-	        	block.Remove(lastIndex);
-	        	Destroy (blockSpace.GetChild(lastIndex).gameObject);
-	        	Debug.Log("Absorbed");
-	        }
+				if(rectTransform.sizeDelta.y == 0){
+					block.Remove(lastIndex);
+					Destroy (blockSpace.GetChild(lastIndex).gameObject);
+					Debug.Log("Absorbed");
+				}
+			}
 
 	        yield return new WaitForSeconds(absorbSpeed);
 	    }

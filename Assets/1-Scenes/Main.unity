@@ -118,11 +118,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1820300165397660, guid: 293c4df31782df248a7b93ea0d6c06ed,
     type: 2}
   m_PrefabInternal: {fileID: 1413556428}
+--- !u!1 &73200381 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1954291427577850, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1 &77915116 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1157319353733256, guid: d58f658597a42ef479850f0f72167967,
     type: 2}
   m_PrefabInternal: {fileID: 2079509880}
+--- !u!1 &153386831 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1912012289784626, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1 &300164144 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1829484906865320, guid: 293c4df31782df248a7b93ea0d6c06ed,
@@ -202,6 +212,16 @@ Prefab:
       propertyPath: gameOverUI
       value: 
       objectReference: {fileID: 516332470}
+    - target: {fileID: 114399970598597832, guid: 6f9ce5c596ccbfb4da5cb247e4572220,
+        type: 2}
+      propertyPath: absorbSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114125640534016280, guid: 6f9ce5c596ccbfb4da5cb247e4572220,
+        type: 2}
+      propertyPath: enable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f9ce5c596ccbfb4da5cb247e4572220, type: 2}
   m_IsPrefabParent: 0
@@ -280,6 +300,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &678478925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1040528759390160, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1001 &773931424
 Prefab:
   m_ObjectHideFlags: 0
@@ -322,6 +347,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 36c0cb169688f7f43be1ac70d1b71aeb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &969688448 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1472431694687500, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1 &995205321
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,6 +419,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1001203178729126, guid: 293c4df31782df248a7b93ea0d6c06ed,
     type: 2}
   m_PrefabInternal: {fileID: 1413556428}
+--- !u!1 &1014911287 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1188503871860926, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1 &1118266400
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,7 +451,7 @@ Transform:
   m_Children:
   - {fileID: 1450195243}
   m_Father: {fileID: 1160301084}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1160301084 stripped
 Transform:
@@ -428,6 +463,54 @@ GameObject:
   m_PrefabParentObject: {fileID: 1007653799083694, guid: 293c4df31782df248a7b93ea0d6c06ed,
     type: 2}
   m_PrefabInternal: {fileID: 1413556428}
+--- !u!1 &1388520764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1388520765}
+  - component: {fileID: 1388520766}
+  m_Layer: 0
+  m_Name: '@ScoreManager'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1388520765
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1388520764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1160301084}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1388520766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1388520764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d96706324efb9134da3c89e76f3a73e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ageUI: {fileID: 1902433719}
+  coinUI: {fileID: 153386831}
+  socializeUI: {fileID: 1442053696}
+  skillUI: {fileID: 1014911287}
+  happinessUI: {fileID: 678478925}
+  respUI1: {fileID: 969688448}
+  respUI2: {fileID: 73200381}
+  respUI3: {fileID: 1914573882}
 --- !u!1001 &1413556428
 Prefab:
   m_ObjectHideFlags: 0
@@ -1010,9 +1093,105 @@ Prefab:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114747527675784578, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: He was a cute boy.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114629635045449152, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: He was a likeable boy. He is cute, and he has definitely has won our
+        hearts to be good friends with him.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114548441936754168, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: I find that he resembles me a lot. I used to be naughty also haha.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826727700084634, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: What an adorable boy!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114054650504521290, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317490760333774, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 146
+      objectReference: {fileID: 0}
+    - target: {fileID: 114113559094312916, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114852241532630948, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 57
+      objectReference: {fileID: 0}
+    - target: {fileID: 114697597506532868, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 'His Friends:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114703521657129394, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 'His Father:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114980210433372186, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 'His grandma:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907332061180322, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 14 % Sleeping
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245557264074766, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 30 % Naughty
+      objectReference: {fileID: 0}
+    - target: {fileID: 114010480946747412, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 0 % inactive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114651591572687478, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 1 % diligent
+      objectReference: {fileID: 0}
+    - target: {fileID: 114525683730533432, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 9 % Lazy
+      objectReference: {fileID: 0}
+    - target: {fileID: 114145148210833270, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 14 % outgoing
+      objectReference: {fileID: 0}
+    - target: {fileID: 114800418884311200, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 33 %  being evil
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 293c4df31782df248a7b93ea0d6c06ed, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1442053696 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1297805623180934, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1 &1450195242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,8 +1232,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c80c7ba76cbb494294290c7f90b61f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
   csvFile: {fileID: 4900000, guid: df17e410be5591d44ae77532a8af9452, type: 3}
+--- !u!1 &1902433719 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1207198545422488, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
+--- !u!1 &1914573882 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1004798287438888, guid: 293c4df31782df248a7b93ea0d6c06ed,
+    type: 2}
+  m_PrefabInternal: {fileID: 1413556428}
 --- !u!1001 &2079509880
 Prefab:
   m_ObjectHideFlags: 0
@@ -1108,6 +1296,11 @@ Prefab:
         type: 2}
       propertyPath: m_Radius
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114747628132987276, guid: d58f658597a42ef479850f0f72167967,
+        type: 2}
+      propertyPath: m_movingSpeed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d58f658597a42ef479850f0f72167967, type: 2}
