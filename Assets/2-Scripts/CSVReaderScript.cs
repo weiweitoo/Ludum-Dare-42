@@ -148,38 +148,38 @@ public class CSVReaderScript : MonoBehaviour {
 		select m.Groups[1].Value).ToArray();
 	}
 
-	static public Category GetRandomGroup()
-	{
-		System.Random r = new System.Random(DateTime.Now.Millisecond);
-		int rInt = r.Next(0, categories.Count);
-		item = categories[rInt];
-		while(!(item.requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.requirements.responsibility))
-			 || !(item.requirements.effect == "0" || ScoreManager.effect.Contains(item.requirements.effect))
-			){
-			rInt = r.Next(0, categories.Count);
-			item = categories[rInt];
-		}
+	// static public Category GetRandomGroup()
+	// {
+	// 	System.Random r = new System.Random(DateTime.Now.Millisecond);
+	// 	int rInt = r.Next(0, categories.Count);
+	// 	item = categories[rInt];
+	// 	while(!(item.requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.requirements.responsibility))
+	// 		 || !(item.requirements.effect == "0" || ScoreManager.effect.Contains(item.requirements.effect))
+	// 		){
+	// 		rInt = r.Next(0, categories.Count);
+	// 		item = categories[rInt];
+	// 	}
 		
 
-		if (categories[rInt].choices.Count == 3){
-			return categories[rInt];
-		} else { // got more than 3 choices
-			List<Category> tempCategories = new List <Category>(categories) ;
-			while (tempCategories[rInt].choices.Count > 3){
-				tempCategories[rInt].choices.RemoveAt(r.Next(0, tempCategories[rInt].choices.Count - 1));
-			}
-			return tempCategories[rInt];
-		}
-		// return new Category();
-	}
+	// 	if (categories[rInt].choices.Count == 3){
+	// 		return categories[rInt];
+	// 	} else { // got more than 3 choices
+	// 		List<Category> tempCategories = new List <Category>(categories) ;
+	// 		while (tempCategories[rInt].choices.Count > 3){
+	// 			tempCategories[rInt].choices.RemoveAt(r.Next(0, tempCategories[rInt].choices.Count - 1));
+	// 		}
+	// 		return tempCategories[rInt];
+	// 	}
+	// 	// return new Category();
+	// }
 
-	static public Category GetSpecificGroup(string grouping)
-	{
-		foreach( var category in categories){
-			if (category.grouping == grouping ){
-				return category;
-			}
-		}
-		return new Category();
-	}
+	// static public Category GetSpecificGroup(string grouping)
+	// {
+	// 	foreach( var category in categories){
+	// 		if (category.grouping == grouping ){
+	// 			return category;
+	// 		}
+	// 	}
+	// 	return new Category();
+	// }
 }
