@@ -77,10 +77,10 @@ public class UIManagerScript : MonoBehaviour {
 		Text textComponent = GameObject.Find("Choice01Text").GetComponent<Text>();
 		textComponent.text = newText;
 		if(valid == false){
-			textComponent.color = new Color(0.3f,0.3f,0.3f);
+			textComponent.color = new Color(0.7f,0.7f,0.7f);
 		}
 		else{
-			textComponent.color = new Color(0,0,0);
+			textComponent.color = new Color(1,1,1);
 		}
 	}
 
@@ -88,10 +88,10 @@ public class UIManagerScript : MonoBehaviour {
 		Text textComponent = GameObject.Find("Choice02Text").GetComponent<Text>();
 		textComponent.text = newText;
 		if(valid == false){
-			textComponent.color = new Color(0.3f,0.3f,0.3f);
+			textComponent.color = new Color(0.7f,0.7f,0.7f);
 		}
 		else{
-			textComponent.color = new Color(0,0,0);
+			textComponent.color = new Color(1,1,1);
 		}
 	}
 
@@ -99,10 +99,10 @@ public class UIManagerScript : MonoBehaviour {
 		Text textComponent = GameObject.Find("Choice03Text").GetComponent<Text>();
 		textComponent.text = newText;
 		if(valid == false){
-			textComponent.color = new Color(0.3f,0.3f,0.3f);
+			textComponent.color = new Color(0.7f,0.7f,0.7f);
 		}
 		else{
-			textComponent.color = new Color(0,0,0);
+			textComponent.color = new Color(1,1,1);
 		}
 	}
 

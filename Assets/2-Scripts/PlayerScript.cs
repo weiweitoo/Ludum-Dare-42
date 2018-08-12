@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour {
 	public IEnumerator FootStepAudio(){
 		while(true){
 			PlayFootStepAudio();
+			// TODO SHAKE CAMERA
 			yield return new WaitForSeconds(0.2f + Mathf.Clamp(1-(m_movingSpeed/10), 0.3f, 2f));
 		}
 	}
@@ -93,9 +94,9 @@ public class PlayerScript : MonoBehaviour {
 		// TODO mencorrectkan the pivot point
 		// make it transition effect
 		GameObject currentPath = GlobalManager.GetCurrentPath();
-		float height = currentPath.transform.position.y;
+		// float height = currentPath.transform.position.y;
 		Quaternion newRotation = currentPath.transform.rotation * Quaternion.Euler(0, 90, 0);
-		Vector3 newPosition = new Vector3(transform.position.x,height,transform.position.z);
+		Vector3 newPosition = new Vector3(transform.position.x,0,transform.position.z);
 
 		GameObject newPath = Instantiate(path,newPosition,newRotation) as GameObject;
 		if(GameObject.Find("PrevPath")){
@@ -124,6 +125,21 @@ public class PlayerScript : MonoBehaviour {
 			z = 0;
 		}
 		left = 0;
+
+		// spawn road	
+		// TODO mencorrectkan the pivot point
+		// make it transition effect
+		GameObject currentPath = GlobalManager.GetCurrentPath();
+		// float height = currentPath.transform.position.y;
+		Quaternion newRotation = currentPath.transform.rotation * Quaternion.Euler(0, -90, 0);
+		Vector3 newPosition = new Vector3(transform.position.x,0,transform.position.z);
+
+		GameObject newPath = Instantiate(path,newPosition,newRotation) as GameObject;
+		if(GameObject.Find("PrevPath")){
+			Destroy(GameObject.Find("PrevPath"));
+		}
+		currentPath.name = "PrevPath";
+		newPath.name = "CurrentPath";
 	}
 
 	public void SetChild(){
@@ -131,5 +147,4 @@ public class PlayerScript : MonoBehaviour {
 		transform.position = new Vector3(0.0f, 2f, 0.0f);
 	}
 
-	//TODO shake camera
 }
