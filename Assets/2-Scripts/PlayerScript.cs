@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
 
 public class PlayerScript : MonoBehaviour {
@@ -7,20 +8,25 @@ public class PlayerScript : MonoBehaviour {
 	public float m_movingSpeed = 1;
 	public float x = 0;
 	public float z = 0;
+	public GameObject path;
 
 	private CharacterController m_CharacterController;
 	private Vector3 m_MoveDir = Vector3.zero;
+	public bool enable = false;
 
+	//For audio
+	private AudioSource m_AudioSource;
+	[SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
+
+	// Debug
 	public int right = 0;
 	public int left = 0;
 
-	public GameObject path;
-
-	public bool enable = false;
-
 	void Start () {
 		m_CharacterController = GetComponent<CharacterController>();
+		m_AudioSource = GetComponent<AudioSource>();
 		SetChild();
+		StartCoroutine(FootStepAudio());
 	}
 	
 	void FixedUpdate () {
@@ -30,14 +36,6 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	public void Enable(){
-		enable = true;
-	}
-
-	public void Disable(){
-		enable = false;
-	}
-
 	void Update(){
 		if(right == 1){
 			TurnRight();
@@ -45,6 +43,30 @@ public class PlayerScript : MonoBehaviour {
 		else if(left == 1){
 			TurnLeft();
 		}
+	}
+
+	public IEnumerator FootStepAudio(){
+		while(true){
+			PlayFootStepAudio();
+			yield return new WaitForSeconds(0.2f + Mathf.Clamp(1-(m_movingSpeed/10), 0.3f, 2f));
+		}
+	}
+
+	private void PlayFootStepAudio(){
+        int n = Random.Range(1, m_FootstepSounds.Length);
+        m_AudioSource.clip = m_FootstepSounds[n];
+        m_AudioSource.PlayOneShot(m_AudioSource.clip);
+        // move picked sound to index 0 so it's not picked next time
+        m_FootstepSounds[n] = m_FootstepSounds[0];
+        m_FootstepSounds[0] = m_AudioSource.clip;
+    }
+
+	public void Enable(){
+		enable = true;
+	}
+
+	public void Disable(){
+		enable = false;
 	}
 
 	public void TurnRight(){
