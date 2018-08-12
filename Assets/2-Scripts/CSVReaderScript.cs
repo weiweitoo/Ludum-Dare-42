@@ -15,7 +15,7 @@ public class CSVReaderScript : MonoBehaviour {
 	};
 
 	public struct Choices{
-		public bool isPossible;
+		public string whyFail;
 		public string message;
 		public int time;
 		public string cumulativeEffect;
@@ -43,12 +43,14 @@ public class CSVReaderScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		string[,] grid = SplitCsvGrid(csvFile.text);
-		// Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
+		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		ProcessOutputGrid(grid);
+
 		// Category haha = GetRandomGroup();
 		// Debug.Log(haha.grouping);
 		// Category hihi = GetSpecificGroup("haha");
 		// Debug.Log(hihi.grouping);
+		Category cat = GetRandomGroup();
 	}
 	
 	// Update is called once per frame
@@ -64,7 +66,6 @@ public class CSVReaderScript : MonoBehaviour {
 		for (int y = 1; y < grid.GetUpperBound(1) - 1; y++) {
 		 	bool shouldCreateNew = true;
 		 	int shouldChangeIndex = 0;
-
 		 	for (int i = 0; i < categories.Count; i++){
 		 		if (categories[i].grouping == grid[6,y] || (grid[6,y] == "" && categories[i].grouping == "random")){
 		 			shouldCreateNew = false;
@@ -89,7 +90,7 @@ public class CSVReaderScript : MonoBehaviour {
 			categories[shouldChangeIndex].choices.Add(new Choices{
 				message = grid[16, y],
 				time = grid[1,y] == "" ? 0 : Int32.Parse(grid[1, y]),
-				nextGroup = grid[7, y],
+				nextGroup = grid[7, y] == "0"? "" : grid[7,y],
 				cumulativeEffect = grid[8, y],
 				addResponsibility = grid[9, y],
 				addEffect = grid[10, y],
@@ -114,7 +115,6 @@ public class CSVReaderScript : MonoBehaviour {
 	static public string[,] SplitCsvGrid(string csvText)
 	{
 		string[] lines = csvText.Split("\n"[0]); 
- 
 		// finds the max width of row
 		int width = 0; 
 		for (int i = 0; i < lines.Length; i++)
@@ -140,6 +140,8 @@ public class CSVReaderScript : MonoBehaviour {
  
 		return outputGrid; 
 	}
+ 
+	// splits a CSV row 
 	static public string[] SplitCsvLine(string line)
 	{
 		return (from System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(line,
@@ -148,38 +150,60 @@ public class CSVReaderScript : MonoBehaviour {
 		select m.Groups[1].Value).ToArray();
 	}
 
-	// static public Category GetRandomGroup()
-	// {
-	// 	System.Random r = new System.Random(DateTime.Now.Millisecond);
-	// 	int rInt = r.Next(0, categories.Count);
-	// 	item = categories[rInt];
-	// 	while(!(item.requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.requirements.responsibility))
-	// 		 || !(item.requirements.effect == "0" || ScoreManager.effect.Contains(item.requirements.effect))
-	// 		){
-	// 		rInt = r.Next(0, categories.Count);
-	// 		item = categories[rInt];
-	// 	}
+	static public Category GetRandomGroup()
+	{	
+		Category item = new Category();
+		// Cond 1: Specific category
+		if (ScoreManager.nextGroup != ""){
+			foreach(var category in categories){
+				if (category.grouping == ScoreManager.nextGroup){
+					item = category;
+					break;
+				}
+			}	 
+		} else {
+			// Cond 2: Random category
+			System.Random r = new System.Random(DateTime.Now.Millisecond);
+			int rInt = r.Next(0, categories.Count);
+			item = categories[rInt];
+			// temp fix, assuming that each choice grouping has the same responsibility and effect requirements.
+			while(!(item.choices[0].requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.choices[0].requirements.responsibility))
+				 || !(item.choices[0].requirements.effect == "0" || ScoreManager.effect.Contains(item.choices[0].requirements.effect))
+				){
+				rInt = r.Next(0, categories.Count);
+				item = categories[rInt];
+			}
+		}
+		
+		if (item.choices.Count != 3){ // got more than 3 choices
+			System.Random r = new System.Random(DateTime.Now.Millisecond);
+			while (item.choices.Count > 3){
+				item.choices.RemoveAt(r.Next(0, item.choices.Count - 1));
+			}
+		}
+		for (int i = 0; i < item.choices.Count; i++){
+			int gold = item.choices[i].requirements.gold;
+		    int skill = item.choices[i].requirements.skill;
+			int socialize = item.choices[i].requirements.socialize;
+			var choice = item.choices[i];
+			choice.whyFail = "";
+			if (ScoreManager.gold < gold){
+				choice.whyFail = "Insufficient money"; 
+			}
+			if (ScoreManager.skill < skill){
+				choice.whyFail = "Insufficient skills";
+			}
+			if (ScoreManager.socialize < socialize){
+				choice.whyFail = "Insufficient social skills";
+			}
+			item.choices[i] = choice;
+
+		}	
+
+		return item;	
 		
 
-	// 	if (categories[rInt].choices.Count == 3){
-	// 		return categories[rInt];
-	// 	} else { // got more than 3 choices
-	// 		List<Category> tempCategories = new List <Category>(categories) ;
-	// 		while (tempCategories[rInt].choices.Count > 3){
-	// 			tempCategories[rInt].choices.RemoveAt(r.Next(0, tempCategories[rInt].choices.Count - 1));
-	// 		}
-	// 		return tempCategories[rInt];
-	// 	}
-	// 	// return new Category();
-	// }
-
-	// static public Category GetSpecificGroup(string grouping)
-	// {
-	// 	foreach( var category in categories){
-	// 		if (category.grouping == grouping ){
-	// 			return category;
-	// 		}
-	// 	}
-	// 	return new Category();
-	// }
+		
+		// return new Category();
+	}
 }

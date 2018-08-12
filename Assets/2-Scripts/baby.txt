@@ -1,0 +1,23 @@
+No,TimeSpent,Happy,Gold,Skill,Socialize,Group,NextGroup,Category,Add Responsibility,Add Effect,Required Gold,Required Responsibility,Required Effect,Required Socialize,Required Skill,Message
+1,18,16,0,0,0,0,0,Sleep,0,0,0,0,0,0,0,Sleep
+2,9,16,0,0,1,0,0,0,0,0,0,0,0,0,0,Cries and get comforted
+3,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with self
+4,14,0,0,3,0,0,0,0,0,0,0,0,0,0,0,Learn to Walk
+5,14,0,0,3,0,0,0,0,0,0,0,0,0,0,0,Learn to Crawl
+6,14,0,0,3,0,0,0,0,0,0,0,0,0,0,0,Learn to Run
+7,14,0,0,3,0,0,0,0,0,0,0,0,0,0,0,Learn to Stand
+8,18,32,0,0,1,101_GO_OUT,0,0,0,0,0,0,0,0,0,Go out with Parents
+9,0,16,0,0,0,101_GO_OUT,0,0,0,0,0,0,0,0,0,Pretend to be sleeping
+10,0,0,0,0,0,101_GO_OUT,0,0,0,0,0,0,0,0,0,Cry and Reject
+11,14,16,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with smartphone
+12,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with finger
+13,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with feet
+14,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with socks
+15,14,32,0,0,0,0,0,0,0,0,0,0,0,0,0,Play with toys
+16,14,32,0,0,1,0,0,0,0,0,0,0,0,0,0,Play with ants
+17,14,32,0,0,1,0,0,0,0,0,0,0,0,0,0,Play with teddy
+18,9,53,0,0,0,102_MISCHIEF,0,0,0,0,0,0,0,0,0,Mischief: Do nothing and be a good boy
+19,9,53,0,0,0,102_MISCHIEF,0,Naughty,0,0,0,0,0,0,0,Mischief: Play with dad’s laptop
+20,9,53,0,3,0,102_MISCHIEF,0,Naughty,0,0,0,0,0,0,0,Mischief: Make the house dirty
+,9,53,0,0,0,0,0,Naughty,0,0,0,0,0,0,0,Break vases
+,14,53,0,3,0,0,0,Naughty,0,0,0,0,0,0,0,Paint anywhere using color pencil
