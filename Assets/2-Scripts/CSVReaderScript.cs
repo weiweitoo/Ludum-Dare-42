@@ -76,7 +76,7 @@ public class CSVReaderScript : MonoBehaviour {
 			Category category;
 			if (shouldCreateNew){
 				category = new Category();
-				category.grouping = grid[6,y] == ""? "random" : grid[6,y];
+				category.grouping = grid[6,y] == "0"? "random" : grid[6,y];
 				category.choices = new List<Choices>();
 				categories.Add(category);
 				shouldChangeIndex = categories.Count - 1;
