@@ -1,25 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour {
 
 	public string status = "Sperm";
 	public GameObject player;
 
-	private bool enable = false;
+	public bool enable = false;
 	private bool choice01Valid = true;
 	private bool choice02Valid = true;
 	private bool choice03Valid = true;
 
 	void Start () {
-		enable = true;
+		// enable = true;
 		UIManagerScript.SetChoice01("i am vallid man.",true);
 		UIManagerScript.SetChoice02("this is invalid",false);
 	}
 	
 	void Update () {
 		if(enable == true){
+			StartCoroutine(ShowGameOver());
 			// Update input
 			
 			if (Input.GetKeyDown(KeyCode.UpArrow)){
@@ -56,6 +58,22 @@ public class GameManagerScript : MonoBehaviour {
 	public void UpdateChoice(){
 		// Fetch 3 choice by status
 		// Set choice using UIManagerScript.SetChoice01(newtext);
+	}
+
+	public IEnumerator ShowGameOver(){
+		UIManagerScript UIManagerComponent = GlobalManager.GetUIManager().GetComponent<UIManagerScript>();
+		UIManagerComponent.sideBarUI.SetActive(false);
+		UIManagerComponent.choiceUI.SetActive(false);
+		UIManagerComponent.endingUI.SetActive(true);
+		UIManagerComponent.analysisUI.SetActive(true);
+		yield return new WaitForSeconds(6);
+		UIManagerComponent.analysisUI.SetActive(false);
+		yield return new WaitForSeconds(1);
+		UIManagerComponent.commentUI.SetActive(true);
+		yield return new WaitForSeconds(6);
+		UIManagerComponent.commentUI.SetActive(false);
+		yield return new WaitForSeconds(1);
+		UIManagerComponent.gameOverUI.SetActive(true);
 	}
 
 }
