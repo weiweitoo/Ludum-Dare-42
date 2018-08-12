@@ -18,7 +18,6 @@ public class GameManagerScript : MonoBehaviour {
 		UIManagerScript.SetChoice02("this is invalid",false);
 	}
 	
-
 	void Update () {
 		if(enable == true){
 			// Update input
