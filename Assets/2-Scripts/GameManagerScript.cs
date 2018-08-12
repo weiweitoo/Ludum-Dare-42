@@ -13,15 +13,15 @@ public class GameManagerScript : MonoBehaviour {
 	private bool choice02Valid = true;
 	private bool choice03Valid = true;
 
+	private Category currentCategory;
+
 	void Start () {
-		// enable = true;
-		UIManagerScript.SetChoice01("i am vallid man.",true);
-		UIManagerScript.SetChoice02("this is invalid",false);
+		enable = true;
+		UpdateChoice();
 	}
 	
 	void Update () {
 		if(enable == true){
-			StartCoroutine(ShowGameOver());
 			// Update input
 			
 			if (Input.GetKeyDown(KeyCode.UpArrow)){
@@ -57,7 +57,10 @@ public class GameManagerScript : MonoBehaviour {
 
 	public void UpdateChoice(){
 		// Fetch 3 choice by status
-		// Set choice using UIManagerScript.SetChoice01(newtext);
+		currentCategory = GameObject.Find("BabyData").GetComponent<CSVReaderScript>().GetRandomGroup();
+		UIManagerScript.SetChoice01(currentCategory.choices[0].message,currentCategory.choices[0].whyFail == "");
+		UIManagerScript.SetChoice02(currentCategory.choices[1].message,currentCategory.choices[1].whyFail == "");
+		UIManagerScript.SetChoice03(currentCategory.choices[2].message,currentCategory.choices[2].whyFail == "");
 	}
 
 	public IEnumerator ShowGameOver(){

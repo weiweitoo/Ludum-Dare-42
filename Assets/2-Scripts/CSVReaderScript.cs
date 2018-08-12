@@ -5,63 +5,17 @@ using System.Linq;
 using System;
 
 public class CSVReaderScript : MonoBehaviour {
-
-	public bool test = false;
 	public TextAsset csvFile;
-	private static List<Category> categories = new List<Category>();
-	public struct Category {
-		public string grouping;
-		public List<Choices> choices;
-	};
+	public List<Category> categories = new List<Category>();
 
-	public struct Choices{
-		public string whyFail;
-		public string message;
-		public int time;
-		public string cumulativeEffect;
-		public string nextGroup;
-		public string addResponsibility;
-		public string addEffect;
-		public StatusUpdates statusUpdates;
-		public Requirements requirements;
-
-	};
-	public struct StatusUpdates{
-		public int happy;
-		public int gold;
-		public int skill;
-		public int socialize;
-	};
-
-	public struct Requirements{
-		public int gold;
-		public int skill;
-		public int socialize;
-		public string responsibility;
-		public string effect;
-	};
 	// Use this for initialization
 	void Start () {
 		string[,] grid = SplitCsvGrid(csvFile.text);
 		Debug.Log("size = " + (1+ grid.GetUpperBound(0)) + "," + (1 + grid.GetUpperBound(1))); 
 		ProcessOutputGrid(grid);
-
-		// Category haha = GetRandomGroup();
-		// Debug.Log(haha.grouping);
-		// Category hihi = GetSpecificGroup("haha");
-		// Debug.Log(hihi.grouping);
-		// Category cat = GetRandomGroup();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if(test == true){
-			//call function
-		}
-	}
-
-	static public void ProcessOutputGrid(string[,] grid)
-	
+	public void ProcessOutputGrid(string[,] grid)
 	{
 		for (int y = 1; y < grid.GetUpperBound(1) - 1; y++) {
 		 	bool shouldCreateNew = true;
@@ -112,7 +66,7 @@ public class CSVReaderScript : MonoBehaviour {
 	}
 
  	// Split CSV grid 
-	static public string[,] SplitCsvGrid(string csvText)
+	public string[,] SplitCsvGrid(string csvText)
 	{
 		string[] lines = csvText.Split("\n"[0]); 
 		// finds the max width of row
@@ -142,7 +96,7 @@ public class CSVReaderScript : MonoBehaviour {
 	}
  
 	// splits a CSV row 
-	static public string[] SplitCsvLine(string line)
+	public string[] SplitCsvLine(string line)
 	{
 		return (from System.Text.RegularExpressions.Match m in System.Text.RegularExpressions.Regex.Matches(line,
 		@"(((?<x>(?=[,\r\n]+))|""(?<x>([^""]|"""")+)""|(?<x>[^,\r\n]+)),?)", 
@@ -150,7 +104,7 @@ public class CSVReaderScript : MonoBehaviour {
 		select m.Groups[1].Value).ToArray();
 	}
 
-	static public Category GetRandomGroup()
+	public Category GetRandomGroup()
 	{	
 		Category item = new Category();
 		// Cond 1: Specific category
