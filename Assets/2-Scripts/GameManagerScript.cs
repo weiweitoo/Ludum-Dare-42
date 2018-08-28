@@ -17,8 +17,13 @@ public class GameManagerScript : MonoBehaviour {
 
 	void Start () {
 		enable = true;
-		UpdateChoice();
+		StartCoroutine(Wait(2));
 		StartCoroutine(RefreshTime());
+	}
+
+	IEnumerator Wait(int x){
+		yield return new WaitForSeconds(x);
+		UpdateChoice();
 	}
 	
 	void Update () {

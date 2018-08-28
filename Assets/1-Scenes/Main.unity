@@ -1184,6 +1184,21 @@ Prefab:
       propertyPath: m_Text
       value: 33 %  being evil
       objectReference: {fileID: 0}
+    - target: {fileID: 114311296970227208, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114971519633400960, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114284071046184814, guid: 293c4df31782df248a7b93ea0d6c06ed,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 293c4df31782df248a7b93ea0d6c06ed, type: 2}
   m_IsPrefabParent: 0

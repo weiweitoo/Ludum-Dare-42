@@ -118,7 +118,7 @@ public class CSVReaderScript : MonoBehaviour {
 		} else {
 			// Cond 2: Random category
 			System.Random r = new System.Random(DateTime.Now.Millisecond);
-			int rInt = r.Next(0, categories.Count-1);
+			int rInt = r.Next(0, categories.Count);
 			item = categories[rInt];
 			// temp fix, assuming that each choice grouping has the same responsibility and effect requirements.
 			while(!(item.choices[0].requirements.responsibility == "0" || ScoreManager.responsibility.Contains(item.choices[0].requirements.responsibility))
